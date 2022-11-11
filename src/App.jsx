@@ -2,9 +2,9 @@ import "./App.scss";
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, onSnapshot, doc} from "firebase/firestore";
-
-import Affirmations from "./components/Affirmations/Affirmations";
-
+import { getAuth } from "firebase/auth";
+// import Affirmations from "./components/Affirmations/Affirmations";
+  import LogInContainer from "./container/LogInContainer/LogInContainer";
 function App() {
   const firebaseConfig = {
     apiKey: "AIzaSyCU6m7yeAQKd4GYVZghAeHhxPEiV4G-RsU",
@@ -18,6 +18,7 @@ function App() {
   initializeApp(firebaseConfig);
   // init services
   const db = getFirestore();
+  const auth = getAuth();
   // collection ref
   const colRef = collection(db, "affirmations");
 
@@ -40,7 +41,8 @@ function App() {
   })
   return (
     <div className="App">
-      <Affirmations colRef={colRef}  db={db}/>
+      {/* <Affirmations colRef={colRef}  db={db}/> */}
+      <LogInContainer auth={auth}/>
     </div>
   );
 }
