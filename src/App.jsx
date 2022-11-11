@@ -1,7 +1,10 @@
 import "./App.scss";
-import LogInContainer from "./container/LogInContainer/LogInContainer";
+
 import { initializeApp } from "firebase/app";
-import {getFirestore, collection, getDocs} from "firebase/firestore";
+import { getFirestore, collection, onSnapshot, doc} from "firebase/firestore";
+
+import Affirmations from "./components/Affirmations/Affirmations";
+
 function App() {
   const firebaseConfig = {
     apiKey: "AIzaSyCU6m7yeAQKd4GYVZghAeHhxPEiV4G-RsU",
@@ -17,18 +20,27 @@ function App() {
   const db = getFirestore();
   // collection ref
   const colRef = collection(db, "affirmations");
-  //get collection data
-  getDocs(colRef)
-    .then((snapshot) => {
-      let affirmations = [];
-      snapshot.docs.forEach((doc) => {
-        affirmations.push({ ...doc.data(), id: doc.id })
-      })
-      console.log(affirmations);
+
+  //queries
+  // const q = query(colRef, where("affirmation", "==", "It takes strength to ask for help."))
+  
+  //real time collection data
+  onSnapshot(colRef, (snapshot) => {
+    let affirmations = [];
+    snapshot.docs.forEach((doc) => {
+      affirmations.push({ ...doc.data(), id: doc.id });
     });
+    console.log(affirmations);
+  })
+  
+  // get a single document
+  const docRef = doc(db, "affirmations", "0Am1xfSPPs8F6mgz2XXo")
+  onSnapshot(docRef, (doc) => {
+    console.log(doc.data(), doc.id);
+  })
   return (
     <div className="App">
-      <LogInContainer />
+      <Affirmations colRef={colRef}  db={db}/>
     </div>
   );
 }
