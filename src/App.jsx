@@ -3,8 +3,9 @@ import "./App.scss";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, onSnapshot, doc} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import WeatherContainer from "./container/WeatherContainer/WeatherContainer";
 // import Affirmations from "./components/Affirmations/Affirmations";
-  import LogInContainer from "./container/LogInContainer/LogInContainer";
+  // import LogInContainer from "./container/LogInContainer/LogInContainer";
 function App() {
   const firebaseConfig = {
     apiKey: "AIzaSyCU6m7yeAQKd4GYVZghAeHhxPEiV4G-RsU",
@@ -42,7 +43,8 @@ function App() {
   return (
     <div className="App">
       {/* <Affirmations colRef={colRef}  db={db}/> */}
-      <LogInContainer auth={auth}/>
+      {/* <LogInContainer auth={auth}/> */}
+      <WeatherContainer />
     </div>
   );
 }
