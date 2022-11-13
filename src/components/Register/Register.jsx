@@ -2,11 +2,12 @@ import "./Register.scss"
 
 import { useState } from "react";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword} from "firebase/auth";
 
 const Register = ({auth}) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+   
 
     const signUp = (event) => {
         event.preventDefault();
@@ -19,6 +20,7 @@ const Register = ({auth}) => {
                 console.log(error.message);
             })
     }
+
   return (
     <div className="Register">
         <h2 className="Register__title">Register New User</h2>

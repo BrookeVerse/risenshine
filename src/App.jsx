@@ -7,6 +7,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import LogInContainer from "./container/LogInContainer/LogInContainer";
 import { useState, useEffect } from "react";
 import MainContainer from "./container/MainContainer/MainContainer";
+import ProfileContainer from "./container/ProfileContainer/ProfileContainer";
 
 // import Affirmations from "./components/Affirmations/Affirmations";
 // import LogInContainer from "./container/LogInContainer/LogInContainer";
@@ -14,6 +15,8 @@ function App() {
   const [weathers, setWeathers] = useState({});
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
+
+  
 
   const firebaseConfig = {
     apiKey: "",
@@ -30,7 +33,11 @@ function App() {
   const auth = getAuth();
   // collection ref
   const colRef = collection(db, "affirmations");
-
+  const user = auth.currentUser;
+  if(user !== null) {
+    console.log(user.email);
+    console.log(user.displayName);
+  }
   //queries
   // const q = query(colRef, where("affirmation", "==", "It takes strength to ask for help."))
 
@@ -79,7 +86,8 @@ function App() {
       {/* <LogInContainer auth={auth}/> */}
       <Router>
         <Routes>
-          <Route path="/home" element={<MainContainer weathers={weathers} colRef={colRef}  db={db}/>}></Route>
+          <Route path="/profile" element={<ProfileContainer auth={auth}/>}></Route>
+          <Route path="/home" element={<MainContainer weathers={weathers} colRef={colRef}  db={db} user={user}/>}></Route>
           <Route path="/" element={<LogInContainer auth={auth} getWeather={getWeather} />}>
             {}
           </Route>

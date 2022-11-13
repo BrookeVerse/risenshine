@@ -1,5 +1,5 @@
 import "./LogIn.scss";
-import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { signOut, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,27 +10,29 @@ const LogIn = ({ auth, getWeather }) => {
 
   const logOut = (event) => {
     event.preventDefault();
-    signOut(auth)
-      .catch((error) => {
-        console.log(error.message);
-      });
+    signOut(auth).catch((error) => {
+      console.log(error.message);
+    });
   };
   const logInForm = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
+        // navigate("/home");
+        navigate("/profile");
         logInForm.reset();
       })
       .catch((error) => {
         console.log(error.message);
       });
-      getWeather();
-      navigate("/home")
+    getWeather();
   };
   // subscribing to auth changes
   onAuthStateChanged(auth, (user) => {
     console.log("user status changed:", user);
-  })
+    
+  });
+
   return (
     <div className="LogIn">
       <h2>Welcome!</h2>

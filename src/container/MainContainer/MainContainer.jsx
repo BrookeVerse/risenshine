@@ -1,10 +1,10 @@
 import Main from "../../components/Main/Main"
 import "./MainContainer.scss"
 
-const MainContainer = ({weathers}) => {
+const MainContainer = ({weathers, user}) => {
   return (
     <div>
-        <Main weathers={weathers}/>
+        <Main weathers={weathers} user={user}/>
     </div>
   )
 }
