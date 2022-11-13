@@ -1,10 +1,12 @@
 import "./LogIn.scss";
 import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const LogIn = ({ auth }) => {
+const LogIn = ({ auth, getWeather }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const logOut = (event) => {
     event.preventDefault();
@@ -22,6 +24,8 @@ const LogIn = ({ auth }) => {
       .catch((error) => {
         console.log(error.message);
       });
+      getWeather();
+      navigate("/home")
   };
   // subscribing to auth changes
   onAuthStateChanged(auth, (user) => {

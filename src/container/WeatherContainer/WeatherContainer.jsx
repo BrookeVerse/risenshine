@@ -32,14 +32,14 @@ const WeatherContainer = () => {
     setWeathers(data);
   };
 
-//   useEffect(() => {
-//     getWeather()
-//   }, []);
+  useEffect(() => {
+    getWeather()
+  }, []);
 // const forecastDays = forecast.forecastday
 //   const weatherCard = forecastDays.map((forecastDay, index) => {
 //           return <img key={index} src={forecastDay.condition} alt="location weather"/>
 //       })
-    console.log(weathers.current);
+//     console.log(weathers.current);
 //   console.log(weather);
   return (
     <div className="weatherContainer">
