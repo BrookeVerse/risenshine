@@ -24,7 +24,7 @@ const WeatherContainer = () => {
     }, 1000)
   }, [])
 
-  const apiKey= ``;
+  const apiKey= `cfa7c9fa48a045d7800122057221211`;
 
   const getWeather = async () => {
     const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude}, ${longitude}&days=7&aqi=no`);

@@ -8,6 +8,7 @@ import LogInContainer from "./container/LogInContainer/LogInContainer";
 import { useState, useEffect } from "react";
 import MainContainer from "./container/MainContainer/MainContainer";
 import ProfileContainer from "./container/ProfileContainer/ProfileContainer";
+import MapContainer from "./container/MapContainer/MapContainer";
 
 // import Affirmations from "./components/Affirmations/Affirmations";
 // import LogInContainer from "./container/LogInContainer/LogInContainer";
@@ -15,11 +16,12 @@ function App() {
   const [weathers, setWeathers] = useState({});
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
+  const [randomAffirmations, setRandomAffirmations] = useState();
 
   
 
   const firebaseConfig = {
-    apiKey: "",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "risenshine-cd3dd.firebaseapp.com",
     projectId: "risenshine-cd3dd",
     storageBucket: "risenshine-cd3dd.appspot.com",
@@ -34,22 +36,24 @@ function App() {
   // collection ref
   const colRef = collection(db, "affirmations");
   const user = auth.currentUser;
-  if(user !== null) {
-    console.log(user.email);
-    console.log(user.displayName);
-  }
   //queries
   // const q = query(colRef, where("affirmation", "==", "It takes strength to ask for help."))
 
   //real time collection data
-  onSnapshot(colRef, (snapshot) => {
-    let affirmations = [];
-    snapshot.docs.forEach((doc) => {
-      affirmations.push({ ...doc.data(), id: doc.id });
-    });
-    console.log(affirmations);
-  });
+  let affirmations = [];
 
+  useEffect(() => {
+    onSnapshot(colRef, (snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        affirmations.push({ ...doc.data(), id: doc.id });
+      });
+      console.log(affirmations);
+      let randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+      setRandomAffirmations(randomAffirmation)
+    });
+  }, [])
+
+  
   // get a single document
   const docRef = doc(db, "affirmations", "0Am1xfSPPs8F6mgz2XXo");
   onSnapshot(docRef, (doc) => {
@@ -73,7 +77,7 @@ function App() {
     }, 1000);
   }, []);
 
-  const apiKey = ``;
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   const getWeather = async () => {
     const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude}, ${longitude}&days=7&aqi=no`);
@@ -82,12 +86,11 @@ function App() {
   };
   return (
     <div className="App">
-      {/* <Affirmations colRef={colRef}  db={db}/> */}
-      {/* <LogInContainer auth={auth}/> */}
       <Router>
         <Routes>
+          <Route path="/map" element={<MapContainer long={longitude} lat={latitude}/>}></Route>
           <Route path="/profile" element={<ProfileContainer auth={auth}/>}></Route>
-          <Route path="/home" element={<MainContainer weathers={weathers} colRef={colRef}  db={db} user={user}/>}></Route>
+          <Route path="/home" element={<MainContainer weathers={weathers} colRef={colRef}  db={db} user={user} randomAffirmations={randomAffirmations} longitude={longitude} latitude={latitude}/>}></Route>
           <Route path="/" element={<LogInContainer auth={auth} getWeather={getWeather} />}>
             {}
           </Route>
