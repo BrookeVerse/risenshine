@@ -33,7 +33,6 @@ const LogIn = ({ auth, getWeather }) => {
         console.log(error.message);
         setError(error.message.split("Firebase: Error"))
       });
-    getWeather();
   };
   // subscribing to auth changes
   onAuthStateChanged(auth, (user) => {

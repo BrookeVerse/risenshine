@@ -17,10 +17,14 @@ export const Welcome = ({ user }) => {
     greetingTime = "Evening";
   }
   return (
-    <div className="Welcome">
-      <img src={greetingImg} alt={greetingTime} />
-      <h2 className="Welcome__title">Good {greetingTime}</h2>
-      {user != null && <h2 className="Welcome__userName">{user.displayName}</h2>}
+    <div className="welcome">
+      <div className="welcome__container">
+        <img src={greetingImg} alt={greetingTime} className="welcome__image" />
+        <div>
+          <h2 className="welcome__text">Good {greetingTime}</h2>
+          {user != null && <h2 className="welcome__name">{user.displayName}</h2>}
+        </div>
+      </div>
     </div>
   );
 };
