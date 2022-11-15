@@ -1,16 +1,15 @@
 import "./LogInContainer.scss";
 
 import LogIn from "../../components/LogIn/LogIn";
-import Register from "../../components/Register/Register";
 
-const LogInContainer = ({auth, getWeather}) => {
-
+const LogInContainer = ({ auth, getWeather }) => {
   return (
-    <div>
-        <LogIn auth={auth} getWeather={getWeather}/>
-        <Register auth={auth}/>
+    <div className="logInContainer">
+      <div>
+        <LogIn auth={auth} getWeather={getWeather} />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default LogInContainer
+export default LogInContainer;

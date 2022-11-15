@@ -85,7 +85,7 @@ function App() {
     setWeathers(data);
   };
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <Routes>
           <Route path="/map" element={<MapContainer long={longitude} lat={latitude}/>}></Route>

@@ -1,7 +1,9 @@
 import "./LogIn.scss";
-import { signOut, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { FaUser, FaLock, FaChevronRight } from "react-icons/fa";
 
 const LogIn = ({ auth, getWeather }) => {
   const [email, setEmail] = useState();
@@ -14,12 +16,16 @@ const LogIn = ({ auth, getWeather }) => {
       console.log(error.message);
     });
   };
+
   const logInForm = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        // navigate("/home");
-        navigate("/profile");
+        if (auth.currentUser.displayName !== null) {
+          navigate("/home");
+        } else {
+          navigate("/profile");
+        }
         logInForm.reset();
       })
       .catch((error) => {
@@ -30,19 +36,39 @@ const LogIn = ({ auth, getWeather }) => {
   // subscribing to auth changes
   onAuthStateChanged(auth, (user) => {
     console.log("user status changed:", user);
-    
   });
 
   return (
-    <div className="LogIn">
-      <h2>Welcome!</h2>
-      <form className="logIn__form" onSubmit={logInForm}>
-        <div className="LogIn__content">
-          <input type="text" placeholder="UserName" className="LogIn__userName" onChange={(event) => setEmail(event.target.value)} />
-          <input type="text" placeholder="Password" className="LogIn__password" onChange={(event) => setPassword(event.target.value)} />
-          <button>Log In</button>
+    <div className="logIn">
+      <div className="logIn__container">
+        <div className="logIn__screen">
+          <div className="logIn__content">
+            <form className="logIn__form" onSubmit={logInForm}>
+              <div className="logIn__field">
+                <FaUser className="logIn__icon" />
+                <input type="text" placeholder="Email" className="logIn__input" onChange={(event) => setEmail(event.target.value)} />
+              </div>
+              <div className="logIn__field">
+                <FaLock className="logIn__icon" />
+                <input type="password" placeholder="Password" className="logIn__input" onChange={(event) => setPassword(event.target.value)} />
+              </div>
+              <button className="logIn__submit">
+                <span className="logIn__text">Log In</span>
+                <FaChevronRight className="logIn__buttonIcon" />
+              </button>
+              <a href="">
+                <p className="logIn__register">Sign up</p>
+              </a>
+            </form>
+          </div>
+          <div className="logIn__background">
+            <span className="logIn__shape4 logIn__shape"></span>
+            <span className="logIn__shape3 logIn__shape"></span>
+            <span className="logIn__shape2 logIn__shape"></span>
+            <span className="logIn__shape1 logIn__shape"></span>
+          </div>
         </div>
-      </form>
+      </div>
       <button onClick={logOut}>Log Out</button>
     </div>
   );
