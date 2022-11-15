@@ -3,7 +3,7 @@ import "./ProfileContainer.scss"
 
 const ProfileContainer = ({auth}) => {
   return (
-    <div>
+    <div className="profileContainer">
         <Profile auth={auth}/>
     </div>
   )

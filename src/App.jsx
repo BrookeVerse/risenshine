@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import MainContainer from "./container/MainContainer/MainContainer";
 import ProfileContainer from "./container/ProfileContainer/ProfileContainer";
 import MapContainer from "./container/MapContainer/MapContainer";
+import RegisterContainer from "./container/RegisterContainer/RegisterContainer";
 
 // import Affirmations from "./components/Affirmations/Affirmations";
 // import LogInContainer from "./container/LogInContainer/LogInContainer";
@@ -91,6 +92,7 @@ function App() {
           <Route path="/map" element={<MapContainer long={longitude} lat={latitude}/>}></Route>
           <Route path="/profile" element={<ProfileContainer auth={auth}/>}></Route>
           <Route path="/home" element={<MainContainer weathers={weathers} colRef={colRef}  db={db} user={user} randomAffirmations={randomAffirmations} longitude={longitude} latitude={latitude}/>}></Route>
+          <Route path="/register" element={<RegisterContainer auth={auth}/>}></Route>
           <Route path="/" element={<LogInContainer auth={auth} getWeather={getWeather} />}>
             {}
           </Route>

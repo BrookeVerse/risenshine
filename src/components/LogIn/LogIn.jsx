@@ -1,13 +1,14 @@
 import "./LogIn.scss";
 import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FaUser, FaLock, FaChevronRight } from "react-icons/fa";
 
 const LogIn = ({ auth, getWeather }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState();
   const navigate = useNavigate();
 
   const logOut = (event) => {
@@ -30,6 +31,7 @@ const LogIn = ({ auth, getWeather }) => {
       })
       .catch((error) => {
         console.log(error.message);
+        setError(error.message.split("Firebase: Error"))
       });
     getWeather();
   };
@@ -46,19 +48,20 @@ const LogIn = ({ auth, getWeather }) => {
             <form className="logIn__form" onSubmit={logInForm}>
               <div className="logIn__field">
                 <FaUser className="logIn__icon" />
-                <input type="text" placeholder="Email" className="logIn__input" onChange={(event) => setEmail(event.target.value)} />
+                <input type="text" placeholder="Email" className="logIn__input" onChange={(event) => setEmail(event.target.value)} required/>
               </div>
               <div className="logIn__field">
                 <FaLock className="logIn__icon" />
-                <input type="password" placeholder="Password" className="logIn__input" onChange={(event) => setPassword(event.target.value)} />
+                <input type="password" placeholder="Password" className="logIn__input" onChange={(event) => setPassword(event.target.value)} required/>
+                <p className="logIn__text">{error}</p>
               </div>
               <button className="logIn__submit">
                 <span className="logIn__text">Log In</span>
                 <FaChevronRight className="logIn__buttonIcon" />
               </button>
-              <a href="">
+              <Link to={"/register"} style={{textDecoration: 'none'}}>
                 <p className="logIn__register">Sign up</p>
-              </a>
+              </Link>
             </form>
           </div>
           <div className="logIn__background">
@@ -69,7 +72,7 @@ const LogIn = ({ auth, getWeather }) => {
           </div>
         </div>
       </div>
-      <button onClick={logOut}>Log Out</button>
+      {/* <button onClick={logOut}>Log Out</button> */}
     </div>
   );
 };

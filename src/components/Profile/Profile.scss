@@ -1,0 +1,83 @@
+.profile {
+  &__container {
+    background-color: #231e39;
+    color: #b3b8cd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  &__title {
+    color: #7875b5;
+  }
+  &__screen {
+    color: #231e39;
+    border-radius: 5px;
+    position: relative;
+    height: 600px;
+    width: 360px;
+    box-shadow: 0px 0px 24px #5c5696;
+  }
+  &__form {
+    width: 320px;
+    padding: 30px;
+    padding-top: 156px;
+  }
+  &__field {
+    padding: 20px 0px;
+    position: relative;
+  }
+  &__icon {
+    position: absolute;
+    top: 30px;
+    color: #7875b5;
+  }
+
+  &__input {
+    border: none;
+    color: #fff;
+    border-bottom: 2px solid #d1d1d4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: 0.2s;
+  }
+  &__submit {
+    background: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+    padding: 16px 20px;
+    border-radius: 26px;
+    border: 1px solid #d4d3e8;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #4c489d;
+    box-shadow: 0px 2px 2px #5c5696;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  &__buttonIcon {
+    font-size: 24px;
+    margin-left: auto;
+    color: #7875b5;
+  }
+}
+
+.profile__input:active,
+.profile__input:focus,
+.profile__input:hover {
+  outline: none;
+  border-bottom-color: #6a679e;
+}
+
+.profile__submit:active,
+.profile__submit:focus,
+.profile__submit:hover {
+	border-color: #6A679E;
+	outline: none;
+}
