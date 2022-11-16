@@ -30,7 +30,7 @@ const WeatherContainer = () => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   const getWeather = async () => {
-    const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude}, ${longitude}&days=7&aqi=no`);
+    const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude}, ${longitude}&days=7&aqi=no`);
     const data = await res.json();
     setWeathers(data);
   };
