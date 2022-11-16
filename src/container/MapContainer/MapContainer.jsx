@@ -81,7 +81,7 @@ const MapContainer = ({ long, lat }) => {
 
       marker.on("dragend", () => {
         const lngLat = marker.getLngLat();
-        setLatitude(lngLat.lng);
+        setLongitude(lngLat.lng);
         setLatitude(lngLat.lat);
       });
       marker.setPopup(popup).togglePopup();
@@ -107,13 +107,16 @@ const MapContainer = ({ long, lat }) => {
   console.log(destinations);
 
   return (
-    <div>
-      {map && <div ref={mapElement} className="map"></div>}
-      <button onClick={calculateRoutes}>Route</button>
-      <button onClick={addMarker}>Map</button>
+    <div className="mapContainer">
+      <h2>Route Planner</h2>
+      <div className="mapContainer__buttonContainer">
+      <button onClick={addMarker} className="mapContainer__submit">Start Route</button>
+      <button onClick={calculateRoutes} className="mapContainer__submit">Show Route</button>
       <Link to={"/home"}>
-        <button>Back</button>
+        <button className="mapContainer__submit">Home</button>
       </Link>
+      </div>
+      {map && <div ref={mapElement} className="map"></div>}
     </div>
   );
 };

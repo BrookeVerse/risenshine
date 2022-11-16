@@ -58,7 +58,9 @@ const WeatherContainer = () => {
     }
     setCurrentTime(`${H} : ${m}`); 
 }
-
+  useEffect(() => {
+    theTime()
+  })
  setInterval(() => {
   theTime()
  }, 10000)

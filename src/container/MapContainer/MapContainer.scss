@@ -1,3 +1,31 @@
+.mapContainer {
+  background: linear-gradient(90deg, #c7c5f4, #776bcc);
+
+  &__submit {
+    margin: 5px;
+    background: #fff;
+    font-size: 14px;
+    padding: 16px 20px;
+    border-radius: 26px;
+    border: 1px solid #d4d3e8;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: #4c489d;
+    box-shadow: 0px 2px 2px #5c5696;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  &__buttonContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
 .map {
   height: 800px;
 }
@@ -12,8 +40,10 @@
   border: solid 3px darkslategray;
 }
 
-.marker-destination{
+.marker-destination {
   background-color: red;
+  border-radius: 11px;
   width: 22px;
   height: 22px;
 }
+
