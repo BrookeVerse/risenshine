@@ -69,7 +69,7 @@ const WeatherContainer = () => {
   return (
     <div className="weatherContainer">
       <button onClick={getWeather} className="weatherContainer__button">
-        Get Current
+        Get Weather
       </button>
       <Weather weathers={weathers} currentDate={currentDate} currentTime={currentTime}/>
       {/* <button onClick={getForecast}>forecast</button> */}
