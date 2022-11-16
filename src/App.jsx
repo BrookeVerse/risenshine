@@ -15,8 +15,7 @@ import Affirmations from "./components/Affirmations/Affirmations";
 // import Affirmations from "./components/Affirmations/Affirmations";
 // import LogInContainer from "./container/LogInContainer/LogInContainer";
 function App() {
-  const [weathers, setWeathers] = useState({});
-  const [longitude, setLongitude] = useState();
+ const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
   const [randomAffirmations, setRandomAffirmations] = useState();
 
@@ -79,7 +78,7 @@ function App() {
     }, 1000);
   }, []);
 
-
+  
   return (
     <div className="app">
       <Router>
@@ -87,7 +86,7 @@ function App() {
           <Route path="/affirmations" element={<Affirmations colRef={colRef} db={db}/>}></Route>
           <Route path="/map" element={<MapContainer long={longitude} lat={latitude}/>}></Route>
           <Route path="/profile" element={<ProfileContainer auth={auth}/>}></Route>
-          <Route path="/home" element={<MainContainer weathers={weathers} colRef={colRef}  db={db} user={user} randomAffirmations={randomAffirmations} longitude={longitude} latitude={latitude}/>}></Route>
+          <Route path="/home" element={<MainContainer colRef={colRef}  db={db} user={user} randomAffirmations={randomAffirmations} longitude={longitude} latitude={latitude}/>}></Route>
           <Route path="/register" element={<RegisterContainer auth={auth}/>}></Route>
           <Route path="/" element={<LogInContainer auth={auth}/>}>
             {}

@@ -1,0 +1,11 @@
+.weatherContainer{
+    &__button{
+        margin-top: 5px;
+        width: 100px;
+    }
+    &__hidden{
+        width: 0px;
+        height: 0px;
+        font-size: 0px;
+    }
+}

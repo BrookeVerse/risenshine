@@ -1,16 +1,16 @@
-.welcome{
-    margin-top: 100px;
-    &__container{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    }
+.welcome {
+  margin-top: 100px;
+  &__container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
 
-    &__image{
-        width: 80px;
-    }
-    &__text{
-        margin-top: 10px;
-        font-size: 30px;
-    }
+  &__image {
+    width: 100px;
+  }
+  &__text {
+    margin-top: 10px;
+    font-size: 30px;
+  }
 }

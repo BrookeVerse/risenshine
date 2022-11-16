@@ -1,0 +1,16 @@
+.weather{
+    &__container{
+        display: flex;
+    }
+    &__info{
+        margin-top: 15px;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    &__time{
+        line-height: 0px;
+        font-size: 30px;
+        font-weight: 800;
+        margin-left: 90px;
+    }
+}
