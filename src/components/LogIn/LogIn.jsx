@@ -27,7 +27,7 @@ const LogIn = ({ auth, getWeather }) => {
         } else {
           navigate("/profile");
         }
-        logInForm.reset();
+        document.getElementById("logIn__form").reset();
       })
       .catch((error) => {
         console.log(error.message);
@@ -44,7 +44,7 @@ const LogIn = ({ auth, getWeather }) => {
       <div className="logIn__container">
         <div className="logIn__screen">
           <div className="logIn__content">
-            <form className="logIn__form" onSubmit={logInForm}>
+            <form className="logIn__form" onSubmit={logInForm} id="logIn__form">
               <div className="logIn__field">
                 <FaUser className="logIn__icon" />
                 <input type="text" placeholder="Email" className="logIn__input" onChange={(event) => setEmail(event.target.value)} required/>

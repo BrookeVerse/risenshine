@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaUser, FaLock, FaChevronRight } from "react-icons/fa";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Register = ({ auth }) => {
   const [email, setEmail] = useState();
@@ -14,7 +15,8 @@ const Register = ({ auth }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((cred) => {
         console.log("user created:", cred.user);
-        signUp.reset();
+        alert("Account created!")
+        document.getElementById("register__form").reset();
       })
       .catch((error) => {
         console.log(error.message);
@@ -26,7 +28,7 @@ const Register = ({ auth }) => {
       <div className="register__container">
         <div className="register__screen">
           <div className="register__content">
-            <form className="register__form" onSubmit={signUp}>
+            <form className="register__form" onSubmit={signUp} id="register__form">
               <h2 className="register__title">Register Today</h2>
               <div className="register__field">
                 <FaUser className="register__icon" />
@@ -46,6 +48,12 @@ const Register = ({ auth }) => {
                 <span className="register__text">Sign up</span>
                 <FaChevronRight className="logIn__buttonIcon" />
               </button>
+              <Link to={"/"}>
+                <button className="register__submit">
+                  <span className="register__text">back</span>
+                  <FaChevronRight className="logIn__buttonIcon" />
+                </button>
+              </Link>
             </form>
           </div>
           <div className="register__background">

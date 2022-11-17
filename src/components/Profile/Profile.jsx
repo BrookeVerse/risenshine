@@ -11,7 +11,8 @@ const Profile = ({ auth }) => {
     updateProfile(auth.currentUser, {
       displayName: `${userName}`,
     }).then(() => {
-      console.log("Profile Has Been Updated!");
+      document.getElementById("profile__form").reset();
+      alert("Profile Has Been Updated!");
     });
   };
   const goHome = () => {
@@ -21,7 +22,7 @@ const Profile = ({ auth }) => {
     <div className="profile">
       <div className="profile__container">
         <div className="profile__screen">
-          <form onSubmit={createUserName} className="profile__form">
+          <form onSubmit={createUserName} className="profile__form" id="profile__form">
             <h2 className="profile__title">Update Profile</h2>
             <div className="profile__field">
               <FaUser className="profile__icon" />
