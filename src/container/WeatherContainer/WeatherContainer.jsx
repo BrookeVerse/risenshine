@@ -50,20 +50,20 @@ const WeatherContainer = () => {
     let Datte = new Date();
     let H = Datte.getHours();
     let m = Datte.getMinutes();
-    if (H < 10 ){
-        H = "0" + H;
+    if (H < 10) {
+      H = "0" + H;
     }
-    if (m < 10 ){
-        m = "0" + m;
+    if (m < 10) {
+      m = "0" + m;
     }
-    setCurrentTime(`${H} : ${m}`); 
-}
+    setCurrentTime(`${H} : ${m}`);
+  }
   useEffect(() => {
-    theTime()
-  })
- setInterval(() => {
-  theTime()
- }, 10000)
+    theTime();
+  });
+  setInterval(() => {
+    theTime();
+  }, 10000);
   // const getForecast = () => {
   //   const forecasting = weathers.forecast;
   //   setForecast(forecasting.forecastday);
@@ -73,7 +73,7 @@ const WeatherContainer = () => {
       <button onClick={getWeather} className="weatherContainer__button">
         Get Weather
       </button>
-      <Weather weathers={weathers} currentDate={currentDate} currentTime={currentTime}/>
+      <Weather weathers={weathers} currentDate={currentDate} currentTime={currentTime} />
       {/* <button onClick={getForecast}>forecast</button> */}
       {/* {forecast != undefined && <Forecast  />} */}
     </div>

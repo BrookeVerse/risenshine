@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=400px  src="./src/assets/images/main-page.PNG" alt="Project logo"></a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">Rise 'n' Shine</h3>
 
-## Available Scripts
+<div align="center">
 
-In the project directory, you can run:
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p align="center"> This project is a morning routine web app, that allows the user have an account, check the weather in their local area and plan a route for thier day plans.
+    <br> 
+</p>
 
-### `npm test`
+## 📝 Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
+- [ToDo](#toDo)
+- [Contributing](../CONTRIBUTING.md)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
 
-### `npm run build`
+## 🧐 About <a name = "about"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Using react, I created a web page that is using various APIs. Firebase is used as a Auth to create accounts, as well as a database for affirmations that can CRUD. It uses the TOM TOM api to create a map and allow you to plan a route for the days travels, and the Weather Api using your local location to show the weather happening.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To use this project, you will need to clone down this repo. Then use Npm Install to download all dependencies. You will also need API Keys for all APIs being used. 
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To download all dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+Npm Install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Api Keys
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+All these sites will need Api Keys
 
-## Learn More
+Weather Api 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+https://www.weatherapi.com/api-explorer.aspx
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+tom tom API
 
-### Code Splitting
+```
+https://developer.tomtom.com/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For affirmations, you will need to create a firebase database, with an affirmations collection. 
 
-### Analyzing the Bundle Size
+## ✔️ To Do <a name = "toDo"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Adding a current news area
 
-### Making a Progressive Web App
+- Add alert to tell you how long your journey will take
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Add a to do list
 
-### Advanced Configuration
+## 🎈 Usage <a name="usage"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The system uses API calls, so that data can be used to show weather, map of local area and affirmations. It also uses your local area's time and date. 
 
-### Deployment
+## 🚀 Deployment <a name = "deployment"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To deploy this site, you need to use Firebase. Intialise firebase tools follow the steps. Then in the terminal
+```
+Npm Build
+```
+followed by 
+```
+Firebase Deploy
+```
 
-### `npm run build` fails to minify
+## ⛏️ Built Using <a name = "built_using"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://reactjs.org/) - Code Framework
+- [JavaScript](https://www.javascript.com/) - Code Language
+- [WeatherApi](https://www.weatherapi.com/api-explorer.aspx) - Weather API
+- [Tom Tom](https://developer.tomtom.com/) - tom tom API
+- [Firebase](https://firebase.google.com/) - Cloud Database, Cloud Auth
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@BrookeVerse](https://github.com/BrookeVerse) - Idea & Initial work
+
+
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+
+- _nology coaches, that help us develop into Junior Developers
+
