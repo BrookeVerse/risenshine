@@ -14,6 +14,8 @@
 ---
 
 <p align="center"> This project is a morning routine web app, that allows the user have an account, check the weather in their local area and plan a route for thier day plans.
+
+You can view the live site<a href="https://risenshine-cd3dd.web.app/"> here</a>
     <br> 
 </p>
 
